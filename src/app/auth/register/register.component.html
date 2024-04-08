@@ -1,0 +1,53 @@
+<div class="register-page"  [formGroup]="registerForm" (ngSubmit)="submit()">
+  <mat-card>
+
+    <div class="justify-content-center">
+      <mat-card-title>Register</mat-card-title>
+      Already have an account? <a routerLink="/login">Sign in</a>
+      <p></p>
+    <mat-form-field>
+      <mat-label>Enter your email </mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+<p></p>
+  <mat-form-field>
+    <mat-label>Enter your username </mat-label>
+    <input matInput formControlName="username">
+  </mat-form-field>
+  <p></p>
+  <mat-form-field>
+    <mat-label>Enter your password</mat-label>
+    <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <p></p>
+  <mat-form-field>
+    <mat-label>Confirm password</mat-label>
+    <input matInput formControlName="confirmPassword" [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <p></p>
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstname">
+  </mat-form-field>
+  <p></p>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastname">
+  </mat-form-field>
+      <p></p>
+<!--  <div  id="controls"  style="display: flex; align-items: center;">-->
+    <button style="width: 20%"  [disabled]="registerForm.invalid"
+            (click)="submit()" mat-flat-button color="primary">
+      Register
+    </button>
+      <p></p>
+<!--    </div>-->
+    </div>
+    </mat-card>
+</div>

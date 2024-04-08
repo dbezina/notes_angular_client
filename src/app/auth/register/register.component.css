@@ -1,0 +1,21 @@
+.register-page {
+  text-align: center;
+  margin-top: 5rem;
+}
+#controls {
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+}
+
+mat-form-field {
+ width: 40%;
+}
+
+/*:host {*/
+/*  display: flex;*/
+/*  width: -moz-available;*/
+/*  flex-direction: column; !* Расположение элементов в столбец *!*/
+/*  justify-content: center; !* Выравнивание по центру по горизонтали *!*/
+/*  align-items: center; !* Выравнивание по центру по вертикали *!*/
+/*}*/

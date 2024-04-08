@@ -1,0 +1,31 @@
+.index-page {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 3rem;
+}
+
+.mat-card-actions {
+  display: flex; /* Включаем flexbox */
+  justify-content: flex-start; /* Выравниваем элементы слева */
+}
+.mat-hint {
+  align-self: flex-end; /* Выравниваем элемент справа */
+}
+.mat-card-subtitle{
+  align-self: flex-start; /* Выравниваем элемент справа */
+}
+
+.post-card {
+  display: block;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+.is-liked {
+  color: darkred;
+}
+
+.not-liked {
+  color: grey;
+}

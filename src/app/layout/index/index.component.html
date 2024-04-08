@@ -1,0 +1,31 @@
+<div *ngIf="(isNotesLoaded && isUserDataLoaded)" class="index-page">
+  <mat-card class="note-card" *ngFor="let note of notes; let i = index">
+    <mat-card-header style="text-align: left">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{note.title}}</mat-card-title>
+<!--      <mat-card-subtitle>{{note.location}}</mat-card-subtitle>-->
+    </mat-card-header>
+    <img mat-card-image [src]="formatImage(note.image)" alt="post image">
+    <mat-card-subtitle>Posted by {{note.username}}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{note.memo}}</p>
+    </mat-card-content>
+
+
+    <div style="text-align: left">
+      <p *ngFor="let comment of note.comments; let cInd = index">
+        <span style="font-weight: 500">{{comment.username}}</span>: {{comment.text}}
+        <button mat-button (click)="deleteComment(comment.id, i, cInd )">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </p>
+    </div>
+
+    <mat-form-field class="w-100">
+      <mat-label>Leave a comment...</mat-label>
+      <input  (keyup.enter)="postComment($event.target.value, note.id, i); $event.target.value = '' " matInput #text maxlength="128">
+      <mat-hint>{{text.value.length}} / 128</mat-hint>
+    </mat-form-field>
+
+  </mat-card>
+</div>

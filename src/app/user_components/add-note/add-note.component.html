@@ -1,0 +1,40 @@
+<div>
+  <h2>Create Note</h2>
+  <button mat-menu-item routerLink="/profile">
+    <mat-icon>arrow_back</mat-icon>
+<!--    <span>back to my notes</span>-->
+  </button>
+  <form [formGroup]="addNoteForm" >
+    <mat-card>
+      <div>
+    <button mat-button *ngIf="!isNoteCreated"  (click)="submitNote(); addNoteForm.value.title = '';  addNoteForm.value.memo = '';">Submit</button>
+        <button color="primary" class="w-50" *ngIf="selectedFile && isNoteCreated" (click)="onUpdate()" mat-button >
+        Update
+      </button>
+      </div>
+  <mat-form-field>
+    <mat-label>Input title</mat-label>
+    <input matInput  formControlName="title">
+  </mat-form-field>
+  <p></p>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Your memo</mat-label>
+      <input matInput formControlName="memo">
+    </mat-form-field>
+
+
+  <p>Choose your picture</p>
+      <div>
+        <button mat-button (click)="fileInput.click()">Pick File</button>
+<!--        <button mat-button *ngIf="selectedFile" (click)="onUpload()">Upload</button>-->
+      </div>
+  <img class="profile-image" [src]="previewImageURL || formatImage(NoteImage) || 'https://i.pinimg.com/564x/0c/bb/aa/0cbbaab0deff7f188a7762d9569bf1b3.jpg'" alt="note image">
+  <input type="file"
+         style="display: none"
+         #fileInput
+
+         (change)="onFileSelected($event)">
+
+    </mat-card>
+  </form>
+</div>
